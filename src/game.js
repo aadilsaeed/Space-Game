@@ -1,10 +1,10 @@
-const { LazyResult } = require("postcss");
+//const { LazyResult } = require("postcss");
 
-let canvas = document.getElementById('myCanvas');
+let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
-let x = canvas.width / 2
-let y = canvas.height - 30
+let x = canvas.width / 2;
+let y = canvas.height - 30;
 
 let dx = 2;
 let dy = -2;
@@ -17,8 +17,8 @@ let rightPressed = false;
 let leftPressed = false;
 let ballRadius = 10;
 
-let brickRowCount = 3;
-let brickColumnCount = 5;
+let brickRowCount = 5;
+let brickColumnCount = 3;
 let brickWidth = 75;
 let brickHeight = 20;
 let brickPadding = 10;
@@ -85,11 +85,11 @@ for(let c=0; c<brickColumnCount; c++) {
         
 
 function drawBall() {
-    ctx.beginPath;
+    ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
-    ctx.closePath;
+    ctx.closePath();
 }
 
 function drawPaddle() {
@@ -146,10 +146,13 @@ function draw() {
 
     if(y + dy < ballRadius) {
         dy = -dy;
-    } else if(y + dy > canvas.height-ballRadius) {
+    } 
+    
+    else if(y + dy > canvas.height-ballRadius) {
         if(x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         }
+
         else {
             lives--;
             if(!lives) {
@@ -159,24 +162,22 @@ function draw() {
             else {
                 x = canvas.width/2;
                 y = canvas.height-30;
-                dx = 2;
-                dy = -2;
+                dx = 3;
+                dy = -3;
                 paddleX = (canvas.width-paddleWidth)/2;
             }
         }
     }
-    if (rightPressed) {
-        paddleX += 7;
-        if (paddleX + paddleWidth > canvas.width) {
-            paddleX = canvas.width - paddleWidth;
-        }
+
+
+
     
-    else if (leftPressed) {
-        paddleX -= 7;
-        if (paddleX < 0) {
-            paddleX = 0;
-        }
-    
+        if(rightPressed && paddleX < canvas.width-paddleWidth) {
+            paddleX += 7;
+          }
+          else if(leftPressed && paddleX > 0) {
+            paddleX -= 7;
+          }
 
     x += dx;
     y += dy;
