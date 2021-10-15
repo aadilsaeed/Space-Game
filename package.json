@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development postcss src/styles.css -o dist/tailwind.css -w",
-    "build": "NODE_ENV=production postcss src/styles.css -o dist/tailwind.css && cp ./src/game.js dist/ && cp ./src/index.html dist/ -w"
+    "build": "NODE_ENV=production postcss src/styles.css -o dist/tailwind.css && cp ./src/game.js dist/ && cp ./src/index.html dist/"
 
   },
   "keywords": [],
