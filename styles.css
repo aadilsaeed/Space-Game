@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+canvas {
+	height: calc(100vh - 24px);
+}
+canvas#myCanvas {
+    width: -webkit-fill-available;
+}
+canvas#myCanvas {
+    margin: 0 4px;
+}
